@@ -1,8 +1,8 @@
 const httpProxy = require('express-http-proxy');
 
 
-const productServiceProxy = httpProxy('http://localhost:3000');
-const orderServiceProxy = httpProxy('http://localhost:2000');
+const userServiceProxy = httpProxy('http://localhost:3000');
+const cartServiceProxy = httpProxy('http://localhost:3001');
 
 class Routes {
   constructor(app) {
@@ -17,24 +17,16 @@ class Routes {
     })
 
 
-    this.app.get("/product/", (req, res) => {
-      productServiceProxy(req, res);
+    this.app.get("/user/*", (req, res) => {
+      userServiceProxy(req, res);
     })
-
-    this.app.get('/product/:productId', (req, res) => {
-      productServiceProxy(req, res);
-    });
-
 
     // TODO 
-    this.app.get("/order/", (req, res) => {
-      orderServiceProxy(req, res);
+    this.app.get("/cart/*", (req, res) => {
+      cartServiceProxy(req, res);
     })
 
-    this.app.get('/order/:orderId', (req, res) => {
-      orderServiceProxy(req, res);
-    });
-
+   
   }
   routesConfig() {
     this.appRoutes();
