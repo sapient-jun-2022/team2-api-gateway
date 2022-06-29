@@ -1,0 +1,29 @@
+####### Home Page
+GET http://localhost:3000 HTTP/1.1
+
+
+####### Shop: User Login Form
+GET http://localhost:3000/user/login HTTP/1.1
+
+####### Shop: Post User login
+POST http://localhost:8000/user/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"himanshu.mahara@publicissapient.com",
+    "password":"123456"
+
+}
+
+####### Shop: Post User SignUP
+POST http://localhost:3000/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"himanshu.mahara@publicissapient.com",
+    "password":"123456",
+    "name":"Himanshu Mahara2"
+
+}
+
+
